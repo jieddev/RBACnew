@@ -301,6 +301,418 @@ try {
             border-radius: 4px;
         }
         
+        /* Shop Tab Styles */
+        .shop-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .products-section {
+            flex: 3;
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cart-section {
+            flex: 1;
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .filter-section {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .search-input, .category-filter {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .search-input {
+            flex: 2;
+        }
+        
+        .category-filter {
+            flex: 1;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .product-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .product-category {
+            color: #666;
+            font-size: 12px;
+            margin: 0 0 10px;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #e63946;
+            font-size: 18px;
+            margin: 5px 0;
+        }
+        
+        .product-stock {
+            color: #666;
+            font-size: 12px;
+            margin: 0 0 15px;
+        }
+        
+        .add-to-cart-btn {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: auto;
+            transition: background-color 0.2s;
+        }
+        
+        .add-to-cart-btn:hover {
+            background-color: #45a049;
+        }
+        
+        .cart-items {
+            margin-bottom: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .empty-cart-message {
+            color: #666;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .item-details h4 {
+            margin: 0 0 5px;
+            font-size: 14px;
+        }
+        
+        .item-details p {
+            margin: 0;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .item-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 5px;
+        }
+        
+        .item-total {
+            font-weight: bold;
+            color: #e63946;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .quantity-btn {
+            width: 24px;
+            height: 24px;
+            border: 1px solid #ddd;
+            background: #f5f5f5;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .quantity {
+            font-size: 14px;
+        }
+        
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #e63946;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .cart-summary {
+            margin-bottom: 20px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .summary-row.total {
+            font-weight: bold;
+            font-size: 18px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        
+        .checkout-btn, .clear-cart-btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 10px;
+            transition: background-color 0.2s;
+        }
+        
+        .checkout-btn {
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        .checkout-btn:hover:not(:disabled) {
+            background-color: #45a049;
+        }
+        
+        .clear-cart-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .clear-cart-btn:hover:not(:disabled) {
+            background-color: #d32f2f;
+        }
+        
+        .checkout-btn:disabled, .clear-cart-btn:disabled {
+            background-color: #cccccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #333;
+        }
+        
+        .checkout-details {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .checkout-items, .payment-section {
+            flex: 1;
+        }
+        
+        .checkout-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .payment-methods {
+            margin-bottom: 15px;
+        }
+        
+        .payment-method {
+            margin-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .checkout-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .process-order-btn, .cancel-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            flex: 1;
+        }
+        
+        .process-order-btn {
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        .process-order-btn:hover:not(:disabled) {
+            background-color: #45a049;
+        }
+        
+        .process-order-btn:disabled {
+            background-color: #cccccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+        
+        .cancel-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .cancel-btn:hover {
+            background-color: #d32f2f;
+        }
+        
+        /* Receipt Styles */
+        .modal-content.receipt {
+            max-width: 400px;
+        }
+        
+        .receipt-content {
+            text-align: center;
+        }
+        
+        .receipt-header {
+            margin-bottom: 20px;
+        }
+        
+        .receipt-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .receipt-table th, .receipt-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .receipt-summary {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        
+        .receipt-footer {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .receipt-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        
+        .receipt-actions .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+            flex: 1;
+        }
+        
+        .receipt-actions .btn:hover {
+            background-color: #45a049;
+        }
+        
         .error-message {
             background-color: #f8d7da;
             color: #721c24;
@@ -1001,6 +1413,8 @@ try {
             <div class="tab <?php echo $activeTab === 'sales' ? 'active' : ''; ?> <?php echo !hasPermission('view_sales', $userPermissions, $hasPermissionsTable) ? 'disabled' : ''; ?>" data-tab="sales" <?php echo !hasPermission('view_sales', $userPermissions, $hasPermissionsTable) ? 'title="You do not have permission to access this tab"' : ''; ?>>Sales</div>
             
             <div class="tab <?php echo $activeTab === 'transactions' ? 'active' : ''; ?> <?php echo !hasPermission('view_transactions', $userPermissions, $hasPermissionsTable) ? 'disabled' : ''; ?>" data-tab="transactions" <?php echo !hasPermission('view_transactions', $userPermissions, $hasPermissionsTable) ? 'title="You do not have permission to access this tab"' : ''; ?>>Transactions</div>
+            
+            <div class="tab <?php echo $activeTab === 'shop' ? 'active' : ''; ?> <?php echo !hasPermission('view_products', $userPermissions, $hasPermissionsTable) ? 'disabled' : ''; ?>" data-tab="shop" <?php echo !hasPermission('view_products', $userPermissions, $hasPermissionsTable) ? 'title="You do not have permission to access this tab"' : ''; ?>>Shop</div>
         </div>
         
         <!-- Products Tab -->
@@ -1523,6 +1937,202 @@ try {
             <?php endif; ?>
         </div>
         
+        <!-- Shop Tab -->
+        <div id="shop" class="tab-content <?php echo $activeTab === 'shop' ? 'active' : ''; ?>">
+            <?php if (!hasPermission('view_products', $userPermissions, $hasPermissionsTable)): ?>
+                <div class="permission-message">
+                    <p>You do not have permission to view this content.</p>
+                </div>
+            <?php else: ?>
+            <div class="shop-container">
+                <div class="products-section">
+                    <h2>Available Products</h2>
+                    <div class="filter-section">
+                        <input type="text" id="product-search" placeholder="Search products..." class="search-input">
+                        <select id="category-filter" class="category-filter">
+                            <option value="">All Categories</option>
+                            <?php
+                            try {
+                                $stmt = $pdo->query("SELECT DISTINCT category FROM products WHERE category IS NOT NULL AND category != '' ORDER BY category");
+                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                    echo "<option value=\"" . htmlspecialchars($row['category']) . "\">" . htmlspecialchars($row['category']) . "</option>";
+                                }
+                            } catch (PDOException $e) {
+                                echo "<option value=\"\">Error loading categories</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    
+                    <div class="products-grid" id="products-grid">
+                        <?php
+                        try {
+                            $stmt = $pdo->query("SELECT * FROM products WHERE stock_quantity > 0 ORDER BY name");
+                            $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                            
+                            if (count($products) > 0) {
+                                foreach ($products as $product) {
+                                    echo "<div class=\"product-card\" data-id=\"" . $product['id'] . "\" data-category=\"" . htmlspecialchars($product['category']) . "\" data-name=\"" . htmlspecialchars($product['name']) . "\">";
+                                    echo "<h3>" . htmlspecialchars($product['name']) . "</h3>";
+                                    echo "<p class=\"product-category\">" . htmlspecialchars($product['category']) . "</p>";
+                                    echo "<p class=\"product-price\">₱" . number_format($product['price'], 2) . "</p>";
+                                    echo "<p class=\"product-stock\">Stock: " . $product['stock_quantity'] . "</p>";
+                                    echo "<button class=\"add-to-cart-btn\" style=\"margin-top: 50px\" data-id=\"" . $product['id'] . "\" data-name=\"" . htmlspecialchars($product['name']) . "\" data-price=\"" . $product['price'] . "\">Add to Cart</button>";
+                                    echo "</div>";
+                                }
+                            } else {
+                                echo "<p class=\"no-products\">No products available.</p>";
+                            }
+                        } catch (PDOException $e) {
+                            echo "<p class=\"error\">Error loading products: " . $e->getMessage() . "</p>";
+                        }
+                        ?>
+                    </div>
+                </div>
+                
+                <div class="cart-section">
+                    <h2>Shopping Cart</h2>
+                    <div class="cart-items" id="cart-items">
+                        <p class="empty-cart-message">Your cart is empty</p>
+                    </div>
+                    
+                    <div class="cart-summary">
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="cart-subtotal">₱0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (12%):</span>
+                            <span id="cart-tax">₱0.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total:</span>
+                            <span id="cart-total">₱0.00</span>
+                        </div>
+                    </div>
+                    
+                    <button id="checkout-btn" class="checkout-btn" disabled>Checkout</button>
+                    <button id="clear-cart-btn" class="clear-cart-btn" disabled>Clear Cart</button>
+                </div>
+            </div>
+            
+            <!-- Checkout Modal -->
+            <div id="checkout-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Checkout</h2>
+                    
+                    <div class="checkout-details">
+                        <div class="checkout-items">
+                            <h3>Order Summary</h3>
+                            <div id="checkout-items-list"></div>
+                            
+                            <div class="checkout-summary">
+                                <div class="summary-row">
+                                    <span>Subtotal:</span>
+                                    <span id="checkout-subtotal">₱0.00</span>
+                                </div>
+                                <div class="summary-row">
+                                    <span>Tax (12%):</span>
+                                    <span id="checkout-tax">₱0.00</span>
+                                </div>
+                                <div class="summary-row total">
+                                    <span>Total:</span>
+                                    <span id="checkout-total">₱0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-section">
+                            <h3>Payment</h3>
+                            <div class="payment-methods">
+                                <div class="payment-method">
+                                    <input type="radio" id="payment-cash" name="payment-method" value="cash" checked>
+                                    <label for="payment-cash">Cash</label>
+                                </div>
+                            </div>
+                            
+                            <div id="cash-payment-details" class="payment-details">
+                                <div class="form-group">
+                                    <label for="cash-amount">Cash Amount:</label>
+                                    <input type="number" id="cash-amount" min="0" step="0.01" placeholder="Enter cash amount">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cash-change">Change:</label>
+                                    <input type="text" id="cash-change" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-actions">
+                        <button id="process-order-btn" class="process-order-btn" disabled>Process Order</button>
+                        <button id="cancel-checkout-btn" class="cancel-btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Receipt Modal -->
+            <div id="receipt-modal" class="modal">
+                <div class="modal-content receipt">
+                    <span class="close">&times;</span>
+                    <div class="receipt-content">
+                        <h2>Receipt</h2>
+                        <div class="receipt-header">
+                            <p><strong>Order #:</strong> <span id="receipt-number"></span></p>
+                            <p><strong>Date:</strong> <span id="receipt-date"></span></p>
+                        </div>
+                        
+                        <table class="receipt-table">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="receipt-items-body">
+                            </tbody>
+                        </table>
+                        
+                        <div class="receipt-summary">
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="receipt-subtotal">₱0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax (12%):</span>
+                                <span id="receipt-tax">₱0.00</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total:</span>
+                                <span id="receipt-total">₱0.00</span>
+                            </div>
+                            <div class="summary-row" id="receipt-payment-row">
+                                <span>Payment:</span>
+                                <span id="receipt-payment">₱0.00</span>
+                            </div>
+                            <div class="summary-row" id="receipt-change-row">
+                                <span>Change:</span>
+                                <span id="receipt-change">₱0.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="receipt-footer">
+                            <p>Thank you for your purchase!</p>
+                        </div>
+                        
+                        <div class="receipt-actions">
+                            <button id="print-receipt-btn" class="btn">Print Receipt</button>
+                            <button id="new-order-btn" class="btn">New Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+        </div>
+        
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Tab switching
@@ -1576,6 +2186,406 @@ try {
             const tabToActivate = document.querySelector(`.tab[data-tab="${tabParam}"]`);
             if (tabToActivate) {
                 tabToActivate.click();
+            }
+        }
+        
+        // Shop tab functionality
+        if (document.getElementById('shop')) {
+            // Initialize variables
+            let cart = [];
+            let shopInitialized = false;
+            
+            // Get DOM elements
+            const productSearch = document.getElementById('product-search');
+            const categoryFilter = document.getElementById('category-filter');
+            const productsGrid = document.getElementById('products-grid');
+            const cartItems = document.getElementById('cart-items');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const cartTax = document.getElementById('cart-tax');
+            const cartTotal = document.getElementById('cart-total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const clearCartBtn = document.getElementById('clear-cart-btn');
+            
+            // Get modal elements
+            const checkoutModal = document.getElementById('checkout-modal');
+            const receiptModal = document.getElementById('receipt-modal');
+            const checkoutClose = checkoutModal.querySelector('.close');
+            const receiptClose = receiptModal.querySelector('.close');
+            const cancelCheckoutBtn = document.getElementById('cancel-checkout-btn');
+            const processOrderBtn = document.getElementById('process-order-btn');
+            const cashAmount = document.getElementById('cash-amount');
+            const cashChange = document.getElementById('cash-change');
+            const printReceiptBtn = document.getElementById('print-receipt-btn');
+            const newOrderBtn = document.getElementById('new-order-btn');
+            
+            // Initialize shop functionality when the shop tab is activated
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    if (this.getAttribute('data-tab') === 'shop' && !shopInitialized) {
+                        initShopFunctionality();
+                        shopInitialized = true;
+                    }
+                });
+            });
+            
+            // Initialize shop if shop tab is active on page load
+            if (tabParam === 'shop') {
+                initShopFunctionality();
+                shopInitialized = true;
+            }
+            
+            // Function to initialize shop functionality
+            function initShopFunctionality() {
+                // Add event listeners for product filtering
+                productSearch.addEventListener('input', filterProducts);
+                categoryFilter.addEventListener('change', filterProducts);
+                
+                // Add event listeners for add to cart buttons
+                const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+                addToCartButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-id'));
+                        const productName = this.getAttribute('data-name');
+                        const productPrice = parseFloat(this.getAttribute('data-price'));
+                        
+                        addToCart(productId, productName, productPrice);
+                    });
+                });
+                
+                // Add event listeners for checkout and clear cart buttons
+                checkoutBtn.addEventListener('click', openCheckoutModal);
+                clearCartBtn.addEventListener('click', clearCart);
+                
+                // Add event listeners for modal close buttons
+                checkoutClose.addEventListener('click', () => checkoutModal.style.display = 'none');
+                receiptClose.addEventListener('click', () => receiptModal.style.display = 'none');
+                cancelCheckoutBtn.addEventListener('click', () => checkoutModal.style.display = 'none');
+                
+                // Add event listener for cash amount input
+                cashAmount.addEventListener('input', calculateChange);
+                
+                // Add event listeners for order processing
+                processOrderBtn.addEventListener('click', processOrder);
+                
+                // Add event listeners for receipt actions
+                printReceiptBtn.addEventListener('click', () => window.print());
+                newOrderBtn.addEventListener('click', () => {
+                    receiptModal.style.display = 'none';
+                    clearCart();
+                });
+                
+                // Close modals when clicking outside
+                window.addEventListener('click', function(event) {
+                    if (event.target === checkoutModal) {
+                        checkoutModal.style.display = 'none';
+                    } else if (event.target === receiptModal) {
+                        receiptModal.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Function to filter products
+            function filterProducts() {
+                const searchTerm = productSearch.value.toLowerCase();
+                const category = categoryFilter.value.toLowerCase();
+                
+                const productCards = productsGrid.querySelectorAll('.product-card');
+                
+                productCards.forEach(card => {
+                    const productName = card.getAttribute('data-name').toLowerCase();
+                    const productCategory = card.getAttribute('data-category').toLowerCase();
+                    
+                    const matchesSearch = productName.includes(searchTerm);
+                    const matchesCategory = category === '' || productCategory === category;
+                    
+                    if (matchesSearch && matchesCategory) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Function to add item to cart
+            function addToCart(productId, productName, productPrice) {
+                // Check if product is already in cart
+                const existingItem = cart.find(item => item.id === productId);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                    existingItem.total = existingItem.quantity * existingItem.price;
+                } else {
+                    cart.push({
+                        id: productId,
+                        name: productName,
+                        price: productPrice,
+                        quantity: 1,
+                        total: productPrice
+                    });
+                }
+                
+                updateCartDisplay();
+                updateCartTotals();
+            }
+            
+            // Function to update cart display
+            function updateCartDisplay() {
+                if (cart.length === 0) {
+                    cartItems.innerHTML = '<p class="empty-cart-message">Your cart is empty</p>';
+                    checkoutBtn.disabled = true;
+                    clearCartBtn.disabled = true;
+                    return;
+                }
+                
+                cartItems.innerHTML = '';
+                
+                cart.forEach(item => {
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    
+                    cartItem.innerHTML = `
+                        <div class="item-details">
+                            <h4>${item.name}</h4>
+                            <p>₱${item.price.toFixed(2)} x ${item.quantity}</p>
+                        </div>
+                        <div class="item-actions">
+                            <span class="item-total">₱${item.total.toFixed(2)}</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus" data-id="${item.id}">-</button>
+                                <span class="quantity">${item.quantity}</span>
+                                <button class="quantity-btn plus" data-id="${item.id}">+</button>
+                            </div>
+                            <button class="remove-btn" data-id="${item.id}">×</button>
+                        </div>
+                    `;
+                    
+                    cartItems.appendChild(cartItem);
+                });
+                
+                // Add event listeners for quantity buttons
+                const minusButtons = cartItems.querySelectorAll('.minus');
+                const plusButtons = cartItems.querySelectorAll('.plus');
+                const removeButtons = cartItems.querySelectorAll('.remove-btn');
+                
+                minusButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-id'));
+                        updateQuantity(productId, -1);
+                    });
+                });
+                
+                plusButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-id'));
+                        updateQuantity(productId, 1);
+                    });
+                });
+                
+                removeButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-id'));
+                        removeFromCart(productId);
+                    });
+                });
+                
+                checkoutBtn.disabled = false;
+                clearCartBtn.disabled = false;
+            }
+            
+            // Function to update item quantity
+            function updateQuantity(productId, change) {
+                const item = cart.find(item => item.id === productId);
+                
+                if (item) {
+                    item.quantity += change;
+                    
+                    if (item.quantity <= 0) {
+                        removeFromCart(productId);
+                    } else {
+                        item.total = item.quantity * item.price;
+                        updateCartDisplay();
+                        updateCartTotals();
+                    }
+                }
+            }
+            
+            // Function to remove item from cart
+            function removeFromCart(productId) {
+                cart = cart.filter(item => item.id !== productId);
+                updateCartDisplay();
+                updateCartTotals();
+            }
+            
+            // Function to update cart totals
+            function updateCartTotals() {
+                const subtotal = cart.reduce((sum, item) => sum + item.total, 0);
+                const tax = subtotal * 0.12;
+                const total = subtotal + tax;
+                
+                cartSubtotal.textContent = `₱${subtotal.toFixed(2)}`;
+                cartTax.textContent = `₱${tax.toFixed(2)}`;
+                cartTotal.textContent = `₱${total.toFixed(2)}`;
+            }
+            
+            // Function to clear cart
+            function clearCart() {
+                cart = [];
+                updateCartDisplay();
+                updateCartTotals();
+            }
+            
+            // Function to open checkout modal
+            function openCheckoutModal() {
+                if (cart.length === 0) return;
+                
+                const checkoutItemsList = document.getElementById('checkout-items-list');
+                const checkoutSubtotal = document.getElementById('checkout-subtotal');
+                const checkoutTax = document.getElementById('checkout-tax');
+                const checkoutTotal = document.getElementById('checkout-total');
+                
+                // Populate checkout items
+                checkoutItemsList.innerHTML = '';
+                
+                cart.forEach(item => {
+                    const itemRow = document.createElement('div');
+                    itemRow.className = 'checkout-item';
+                    
+                    itemRow.innerHTML = `
+                        <div class="item-name">${item.name} x ${item.quantity}</div>
+                        <div class="item-price">₱${item.total.toFixed(2)}</div>
+                    `;
+                    
+                    checkoutItemsList.appendChild(itemRow);
+                });
+                
+                // Set checkout totals
+                const subtotal = cart.reduce((sum, item) => sum + item.total, 0);
+                const tax = subtotal * 0.12;
+                const total = subtotal + tax;
+                
+                checkoutSubtotal.textContent = `₱${subtotal.toFixed(2)}`;
+                checkoutTax.textContent = `₱${tax.toFixed(2)}`;
+                checkoutTotal.textContent = `₱${total.toFixed(2)}`;
+                
+                // Reset payment fields
+                cashAmount.value = '';
+                cashChange.value = '';
+                processOrderBtn.disabled = true;
+                
+                // Show checkout modal
+                checkoutModal.style.display = 'block';
+            }
+            
+            // Function to calculate change
+            function calculateChange() {
+                const subtotal = cart.reduce((sum, item) => sum + item.total, 0);
+                const tax = subtotal * 0.12;
+                const total = subtotal + tax;
+                
+                const amount = parseFloat(cashAmount.value) || 0;
+                const change = amount - total;
+                
+                if (amount >= total) {
+                    cashChange.value = `₱${change.toFixed(2)}`;
+                    processOrderBtn.disabled = false;
+                } else {
+                    cashChange.value = 'Insufficient amount';
+                    processOrderBtn.disabled = true;
+                }
+            }
+            
+            // Function to process order
+            function processOrder() {
+                const subtotal = cart.reduce((sum, item) => sum + item.total, 0);
+                const tax = subtotal * 0.12;
+                const total = subtotal + tax;
+                const paymentMethod = 'cash';
+                const paymentAmount = parseFloat(cashAmount.value) || 0;
+                
+                // Prepare order data
+                const orderData = {
+                    items: cart.map(item => ({
+                        product_id: item.id,
+                        name: item.name,
+                        price: item.price,
+                        quantity: item.quantity,
+                        total: item.total
+                    })),
+                    subtotal: subtotal,
+                    tax: tax,
+                    total: total,
+                    payment_method: paymentMethod,
+                    payment_amount: paymentAmount
+                };
+                
+                // Send order to server
+                fetch('process_order.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(orderData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Close checkout modal
+                        checkoutModal.style.display = 'none';
+                        
+                        // Show receipt
+                        showReceipt(orderData, data.sale_id);
+                    } else {
+                        alert('Error processing order: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error processing order. Please try again.');
+                });
+            }
+            
+            // Function to show receipt
+            function showReceipt(orderData, saleId) {
+                // Close checkout modal
+                checkoutModal.style.display = 'none';
+                
+                // Set receipt details
+                document.getElementById('receipt-number').textContent = saleId;
+                document.getElementById('receipt-date').textContent = new Date().toLocaleString();
+                
+                // Populate receipt items
+                const receiptItemsBody = document.getElementById('receipt-items-body');
+                receiptItemsBody.innerHTML = '';
+                
+                cart.forEach(item => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${item.name}</td>
+                        <td>${item.quantity}</td>
+                        <td>₱${item.price.toFixed(2)}</td>
+                        <td>₱${item.total.toFixed(2)}</td>
+                    `;
+                    receiptItemsBody.appendChild(row);
+                });
+                
+                // Set receipt totals
+                document.getElementById('receipt-subtotal').textContent = `₱${orderData.subtotal.toFixed(2)}`;
+                document.getElementById('receipt-tax').textContent = `₱${orderData.tax.toFixed(2)}`;
+                document.getElementById('receipt-total').textContent = `₱${orderData.total.toFixed(2)}`;
+                
+                // Show payment details for cash payments
+                if (orderData.payment_method === 'cash') {
+                    document.getElementById('receipt-payment-row').style.display = 'flex';
+                    document.getElementById('receipt-change-row').style.display = 'flex';
+                    document.getElementById('receipt-payment').textContent = `₱${orderData.payment_amount.toFixed(2)}`;
+                    document.getElementById('receipt-change').textContent = `₱${(orderData.payment_amount - orderData.total).toFixed(2)}`;
+                } else {
+                    document.getElementById('receipt-payment-row').style.display = 'none';
+                    document.getElementById('receipt-change-row').style.display = 'none';
+                }
+                
+                // Show receipt modal
+                receiptModal.style.display = 'block';
             }
         }
     });
